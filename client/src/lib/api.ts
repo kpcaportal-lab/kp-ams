@@ -7,10 +7,10 @@ if (isProd && !baseURL) {
     console.warn('⚠️ VITE_API_URL is not defined in production environment. Falling back to localhost, which may cause network errors.');
 }
 
-console.log('📡 API Base URL:', baseURL || 'http://localhost:4000');
+console.log('📡 API Base URL:', baseURL || 'https://kp-ams.onrender.com');
 
 const api = axios.create({
-    baseURL: baseURL || 'http://localhost:4000',
+    baseURL: baseURL || 'https://kp-ams.onrender.com',
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true,
 });
