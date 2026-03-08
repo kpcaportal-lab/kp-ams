@@ -30,6 +30,17 @@ export const useAuthStore = create<AuthState>()(
                     set({ user, token, isAuthenticated: true, isLoading: false });
                 } catch (err: any) {
                     set({ isLoading: false });
+                    console.error('🕵️ Detailed login error:', {
+                        message: err.message,
+                        code: err.code,
+                        response: err.response?.data,
+                        status: err.response?.status,
+                        config: {
+                            url: err.config?.url,
+                            baseURL: err.config?.baseURL,
+                            method: err.config?.method
+                        }
+                    });
                     const message = err.response?.data?.details || err.response?.data?.error || err.message || 'Login failed';
                     throw new Error(message);
                 }

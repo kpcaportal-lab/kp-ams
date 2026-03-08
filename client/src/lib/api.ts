@@ -7,6 +7,8 @@ if (isProd && !baseURL) {
     console.warn('⚠️ VITE_API_URL is not defined in production environment. Falling back to localhost, which may cause network errors.');
 }
 
+console.log('📡 API Base URL:', baseURL || 'http://localhost:4000');
+
 const api = axios.create({
     baseURL: baseURL || 'http://localhost:4000',
     headers: { 'Content-Type': 'application/json' },
