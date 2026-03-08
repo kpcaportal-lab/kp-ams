@@ -1,7 +1,14 @@
 import axios from 'axios';
 
+const isProd = import.meta.env.PROD;
+const baseURL = import.meta.env.VITE_API_URL;
+
+if (isProd && !baseURL) {
+    console.warn('⚠️ VITE_API_URL is not defined in production environment. Falling back to localhost, which may cause network errors.');
+}
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:4000',
+    baseURL: baseURL || 'http://localhost:4000',
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true,
 });

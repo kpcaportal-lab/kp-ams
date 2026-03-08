@@ -70,7 +70,8 @@ export default function ProposalDetailPage() {
     };
 
     const handleExport = (format: 'pdf' | 'pptx') => {
-        const url = `${import.meta.env.VITE_API_URL || 'http://localhost:4000'}/api/proposals/${id}/export/${format}`;
+        const apiBase = import.meta.env.VITE_API_URL || '';
+        const url = `${apiBase}/api/proposals/${id}/export/${format}`;
         window.open(url, '_blank');
     };
 
