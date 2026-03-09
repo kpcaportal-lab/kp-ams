@@ -7,29 +7,29 @@
 
 INSERT INTO profiles (id, email, password_hash, role, full_name, display_name) VALUES
 -- Admin
-('00000000-0000-0000-0000-000000000001', 'admin@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'admin', 'System Administrator', 'Admin'),
+('00000000-0000-0000-0000-000000000001', 'admin@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'admin', 'System Administrator', 'Admin'),
 
 -- Partners
-('00000000-0000-0000-0000-000000000002', 'partner1@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'partner', 'Partner 1', 'Partner 1'),
-('00000000-0000-0000-0000-000000000003', 'partner2@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'partner', 'Partner 2', 'Partner 2'),
-('00000000-0000-0000-0000-000000000004', 'partner3@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'partner', 'Partner 3', 'Partner 3'),
+('00000000-0000-0000-0000-000000000002', 'partner1@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'partner', 'Partner 1', 'Partner 1'),
+('00000000-0000-0000-0000-000000000003', 'partner2@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'partner', 'Partner 2', 'Partner 2'),
+('00000000-0000-0000-0000-000000000004', 'partner3@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'partner', 'Partner 3', 'Partner 3'),
 
 -- Directors
-('00000000-0000-0000-0000-000000000005', 'director1@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'director', 'Director 1', 'Director 1'),
-('00000000-0000-0000-0000-000000000006', 'director2@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'director', 'Director 2', 'Director 2'),
-('00000000-0000-0000-0000-000000000007', 'director3@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'director', 'Director 3', 'Director 3'),
+('00000000-0000-0000-0000-000000000005', 'director1@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'director', 'Director 1', 'Director 1'),
+('00000000-0000-0000-0000-000000000006', 'director2@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'director', 'Director 2', 'Director 2'),
+('00000000-0000-0000-0000-000000000007', 'director3@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'director', 'Director 3', 'Director 3'),
 
 -- Managers
-('00000000-0000-0000-0000-000000000008', 'manager1@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'manager', 'Manager 1', 'Manager 1'),
-('00000000-0000-0000-0000-000000000009', 'manager2@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'manager', 'Manager 2', 'Manager 2'),
-('00000000-0000-0000-0000-000000000010', 'manager3@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'manager', 'Manager 3', 'Manager 3'),
-('00000000-0000-0000-0000-000000000011', 'manager4@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'manager', 'Manager 4', 'Manager 4'),
-('00000000-0000-0000-0000-000000000012', 'manager5@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'manager', 'Manager 5', 'Manager 5'),
-('00000000-0000-0000-0000-000000000013', 'manager6@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'manager', 'Manager 6', 'Manager 6'),
-('00000000-0000-0000-0000-000000000014', 'manager7@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'manager', 'Manager 7', 'Manager 7'),
-('00000000-0000-0000-0000-000000000015', 'manager8@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'manager', 'Manager 8', 'Manager 8'),
-('00000000-0000-0000-0000-000000000016', 'manager9@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'manager', 'Manager 9', 'Manager 9'),
-('00000000-0000-0000-0000-000000000017', 'manager10@kirtanepandit.com', '$2b$10$2xYUffCuvOROYKhoJV7JEutzZkD4VJDBzb0XMmIPAV3qrws7sk.V2', 'manager', 'Manager 10', 'Manager 10');
+('00000000-0000-0000-0000-000000000008', 'manager1@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'manager', 'Manager 1', 'Manager 1'),
+('00000000-0000-0000-0000-000000000009', 'manager2@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'manager', 'Manager 2', 'Manager 2'),
+('00000000-0000-0000-0000-000000000010', 'manager3@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'manager', 'Manager 3', 'Manager 3'),
+('00000000-0000-0000-0000-000000000011', 'manager4@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'manager', 'Manager 4', 'Manager 4'),
+('00000000-0000-0000-0000-000000000012', 'manager5@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'manager', 'Manager 5', 'Manager 5'),
+('00000000-0000-0000-0000-000000000013', 'manager6@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'manager', 'Manager 6', 'Manager 6'),
+('00000000-0000-0000-0000-000000000014', 'manager7@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'manager', 'Manager 7', 'Manager 7'),
+('00000000-0000-0000-0000-000000000015', 'manager8@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'manager', 'Manager 8', 'Manager 8'),
+('00000000-0000-0000-0000-000000000016', 'manager9@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'manager', 'Manager 9', 'Manager 9'),
+('00000000-0000-0000-0000-000000000017', 'manager10@kirtanepandit.com', '$2a$10$xWCoSeTFNUX2XB2dBLYixe5Te3A7lqbeUbpiPm2oTvcnCK3dvtf3a', 'manager', 'Manager 10', 'Manager 10');
 
 -- CLIENTS
 INSERT INTO clients (id, name, gstn, status, added_by) VALUES
