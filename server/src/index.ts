@@ -29,7 +29,6 @@ const registerRoutes = (app: express.Express) => {
     console.log('✅ All routes loaded successfully');
 };
 
-
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -73,7 +72,7 @@ const startServer = async () => {
             });
         });
 
-        const HOST = '::'; // Listen on all interfaces (IPv4 and IPv6)
+        const HOST = '0.0.0.0'; // Better for Render
         app.listen(Number(PORT), HOST, () => {
             console.log(`🚀 KP AMS Server running on http://localhost:${PORT} (Interface: ${HOST})`);
         });
@@ -84,7 +83,5 @@ const startServer = async () => {
 };
 
 startServer();
-
-console.log('Resolved auth path:', path.resolve('./src/routes/auth.ts'));
 
 export default app;
