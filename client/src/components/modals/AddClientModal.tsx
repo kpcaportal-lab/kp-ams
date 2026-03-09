@@ -40,9 +40,10 @@ export default function AddClientModal({ isOpen, onClose, onSuccess }: AddClient
             setName('');
             setGstn('');
             setNotes('');
-        } catch (err: any) {
+        } catch (err) {
             console.error('Error adding client:', err);
-            toast.error(err.response?.data?.error || 'Failed to add client');
+            const error = err as { response?: { data?: { error?: string } } };
+            toast.error(error.response?.data?.error || 'Failed to add client');
         } finally {
             setLoading(false);
         }

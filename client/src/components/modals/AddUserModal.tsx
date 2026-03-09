@@ -56,9 +56,10 @@ export default function AddUserModal({ isOpen, onClose, onSuccess }: AddUserModa
                 role: 'manager',
                 password: ''
             });
-        } catch (err: any) {
+        } catch (err) {
             console.error('Error adding user:', err);
-            toast.error(err.response?.data?.error || 'Failed to invite user');
+            const error = err as { response?: { data?: { error?: string } } };
+            toast.error(error.response?.data?.error || 'Failed to invite user');
         } finally {
             setLoading(false);
         }
@@ -156,15 +157,13 @@ export default function AddUserModal({ isOpen, onClose, onSuccess }: AddUserModa
                                     key={role.value}
                                     type="button"
                                     onClick={() => setFormData({ ...formData, role: role.value })}
-                                    className={`flex flex-col items-start p-3 rounded-xl border transition-all text-left ${
-                                        formData.role === role.value
-                                            ? 'bg-blue-100 border-blue-300 ring-1 ring-blue-300'
-                                            : 'bg-slate-50 border-blue-200 hover:border-blue-300'
-                                    }`}
+                                    className={`flex flex-col items-start p-3 rounded-xl border transition-all text-left ${formData.role === role.value
+                                        ? 'bg-blue-100 border-blue-300 ring-1 ring-blue-300'
+                                        : 'bg-slate-50 border-blue-200 hover:border-blue-300'
+                                        }`}
                                 >
-                                    <span className={`text-sm font-bold ${
-                                        formData.role === role.value ? 'text-blue-600' : 'text-slate-900'
-                                    }`}>
+                                    <span className={`text-sm font-bold ${formData.role === role.value ? 'text-blue-600' : 'text-slate-900'
+                                        }`}>
                                         {role.label}
                                     </span>
                                     <span className="text-[10px] text-slate-600 mt-0.5 leading-tight">

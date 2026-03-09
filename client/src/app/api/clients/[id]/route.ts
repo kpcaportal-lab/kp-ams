@@ -4,11 +4,11 @@ import { query } from '@/lib/db';
 
 export async function GET(
   _request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const user = await requireAuth();
-    const clientId = params.id;
+    const clientId = (await params).id;
 
     const result = await query(
       `SELECT c.*, 
@@ -35,9 +35,9 @@ export async function GET(
     }
 
     return NextResponse.json(result.rows[0]);
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json(
-      { error: error.message },
+      { error: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }
@@ -45,11 +45,11 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const user = await requireAuth();
-    const clientId = params.id;
+    const clientId = (await params).id;
     const body = await request.json();
 
     // Verify ownership
@@ -96,9 +96,9 @@ export async function PUT(
     );
 
     return NextResponse.json(result.rows[0]);
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json(
-      { error: error.message },
+      { error: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }
@@ -106,11 +106,11 @@ export async function PUT(
 
 export async function DELETE(
   _request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const user = await requireAuth();
-    const clientId = params.id;
+    const clientId = (await params).id;
 
     // Verify ownership
     const verifyResult = await query(
@@ -132,9 +132,9 @@ export async function DELETE(
     );
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json(
-      { error: error.message },
+      { error: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }

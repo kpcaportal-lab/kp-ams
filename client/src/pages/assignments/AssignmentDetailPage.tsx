@@ -15,7 +15,8 @@ import { formatCurrency, SUBCATEGORY_LABELS } from '@/types';
 import toast from 'react-hot-toast';
 
 export default function AssignmentDetailPage() {
-    const { id } = useParams();
+    const params = useParams();
+    const id = params?.id as string;
     const navigate = useNavigate();
     const [assignment, setAssignment] = useState<Assignment | null>(null);
     const [loading, setLoading] = useState(true);
@@ -98,7 +99,7 @@ export default function AssignmentDetailPage() {
                     <div className="flex items-center gap-3">
                         {assignment.proposal_id && (
                             <Link
-                                to={`/proposals/${assignment.proposal_id}`}
+                                href={`/proposals/${assignment.proposal_id}`}
                                 className="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 hover:border-blue-500 text-slate-600 hover:text-blue-600 rounded-xl transition-all text-sm font-bold shadow-sm"
                             >
                                 <ExternalLink className="w-4 h-4" />

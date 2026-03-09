@@ -2,30 +2,34 @@ import Link, { LinkProps } from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
-interface NavLinkProps extends LinkProps {
-  children: React.ReactNode | ((isActive: boolean) => React.ReactNode);
-  className?: string | ((isActive: boolean) => string);
+interface NavLinkProps extends Omit<LinkProps, 'href'> {
+  href?: string;
+  to?: string; // Support 'to' prop for compatibility
+  children: React.ReactNode | ((props: { isActive: boolean }) => React.ReactNode);
+  className?: string | ((props: { isActive: boolean }) => string);
   title?: string;
 }
 
 export default function NavLink({
   href,
+  to,
   children,
   className,
   title,
   ...props
 }: NavLinkProps) {
+  const linkHref = href || to || '#';
   const pathname = usePathname();
-  const isActive = pathname === href || pathname.startsWith(`${href}/`);
+  const isActive = pathname ? (pathname === linkHref || pathname.startsWith(`${linkHref}/`)) : false;
 
   const classNameStr =
-    typeof className === 'function' ? className(isActive) : className;
+    typeof className === 'function' ? className({ isActive }) : className;
 
   const childrenElement =
-    typeof children === 'function' ? children(isActive) : children;
+    typeof children === 'function' ? children({ isActive }) : children;
 
   return (
-    <Link href={href} className={classNameStr} title={title} {...props}>
+    <Link href={linkHref} className={classNameStr} title={title} {...props}>
       {childrenElement}
     </Link>
   );

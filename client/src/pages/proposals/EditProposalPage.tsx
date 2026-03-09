@@ -12,7 +12,8 @@ import type { Client, ProposalType, AssignmentType, Proposal, ProposalTemplate }
 import toast from 'react-hot-toast';
 
 export default function EditProposalPage() {
-    const { id } = useParams();
+    const params = useParams();
+    const id = params?.id as string;
     const navigate = useNavigate();
     const [clients, setClients] = useState<Client[]>([]);
     const [partners, setPartners] = useState<{ id: string, full_name: string }[]>([]);

@@ -28,20 +28,22 @@ export const useAuthStore = create<AuthState>()(
                     const { token, user } = res.data;
                     localStorage.setItem('kp_token', token);
                     set({ user, token, isAuthenticated: true, isLoading: false });
-                } catch (err: any) {
+                } catch (err) {
                     set({ isLoading: false });
+                    const error = err as {
+                        message?: string;
+                        code?: string;
+                        response?: { data?: { details?: string; error?: string }, status?: number };
+                        config?: { url?: string; baseURL?: string; method?: string };
+                    };
                     console.error('🕵️ Detailed login error:', {
-                        message: err.message,
-                        code: err.code,
-                        response: err.response?.data,
-                        status: err.response?.status,
-                        config: {
-                            url: err.config?.url,
-                            baseURL: err.config?.baseURL,
-                            method: err.config?.method
-                        }
+                        message: error.message,
+                        code: error.code,
+                        response: error.response?.data,
+                        status: error.response?.status,
+                        config: error.config
                     });
-                    const message = err.response?.data?.details || err.response?.data?.error || err.message || 'Login failed';
+                    const message = error.response?.data?.details || error.response?.data?.error || error.message || 'Login failed';
                     throw new Error(message);
                 }
             },

@@ -17,7 +17,8 @@ import { formatDate, formatCurrency, ASSIGNMENT_TYPE_LABELS } from '@/types';
 import toast from 'react-hot-toast';
 
 export default function ProposalDetailPage() {
-    const { id } = useParams();
+    const params = useParams();
+    const id = params?.id as string;
     const navigate = useNavigate();
     const [proposal, setProposal] = useState<Proposal | null>(null);
     const [loading, setLoading] = useState(true);
@@ -38,6 +39,7 @@ export default function ProposalDetailPage() {
 
     useEffect(() => {
         fetchProposal();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id, navigate]);
 
     const handleStatusUpdate = async (status: 'won' | 'lost' | 'pending') => {
@@ -74,7 +76,7 @@ export default function ProposalDetailPage() {
     };
 
     const handleExport = (format: 'pdf' | 'pptx') => {
-        const apiBase = import.meta.env.VITE_API_URL || '';
+        const apiBase = process.env.NEXT_PUBLIC_API_URL || '';
         const url = `${apiBase}/api/proposals/${id}/export/${format}`;
         window.open(url, '_blank');
     };
@@ -323,7 +325,7 @@ export default function ProposalDetailPage() {
                                     {/* Link to previous versions if they exist */}
                                     {proposal.parent_proposal_id && (
                                         <Link
-                                            to={`/proposals/${proposal.parent_proposal_id}`}
+                                            href={`/proposals/${proposal.parent_proposal_id}`}
                                             className="flex gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50 hover:border-blue-200 transition-all group"
                                         >
                                             <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center border border-slate-200 group-hover:border-blue-300">

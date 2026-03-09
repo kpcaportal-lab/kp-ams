@@ -96,7 +96,7 @@ export async function validateAndParse<T>(schema: z.Schema<T>, data: unknown): P
     return await schema.parseAsync(data);
   } catch (error) {
     if (error instanceof z.ZodError) {
-      throw new Error(`Validation error: ${error.issues.map((e: any) => `${e.path.join('.')}: ${e.message}`).join(', ')}`);
+      throw new Error(`Validation error: ${error.issues.map((e: z.ZodIssue) => `${e.path.join('.')}: ${e.message}`).join(', ')}`);
     }
     throw error;
   }

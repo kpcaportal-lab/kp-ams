@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
     // Upload to R2
     const buffer = await file.arrayBuffer();
     const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
-    
+
     const uploadResult = await uploadToR2(
       Buffer.from(buffer),
       sanitizedFileName,
@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
     );
 
     return NextResponse.json(result.rows[0], { status: 201 });
-  } catch (error: any) {
+  } catch (error) {
     console.error('[POST /api/upload] Error:', error);
     return NextResponse.json(
       { error: 'Upload failed' },

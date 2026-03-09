@@ -4,11 +4,11 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-pool.on('error', (err) => {
+pool.on('error', (err: Error) => {
   console.error('Unexpected error on idle client', err);
 });
 
-export async function query(text: string, params?: any[]) {
+export async function query(text: string, params?: unknown[]) {
   const start = Date.now();
   try {
     const res = await pool.query(text, params);

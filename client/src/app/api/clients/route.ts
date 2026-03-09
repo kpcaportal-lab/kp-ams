@@ -16,7 +16,7 @@ export async function GET(_request: NextRequest) {
     );
 
     return NextResponse.json(result.rows);
-  } catch (error: any) {
+  } catch (error) {
     console.error('[GET /api/clients] Error:', error);
     return NextResponse.json(
       { error: 'Failed to fetch clients' },
@@ -53,16 +53,16 @@ export async function POST(request: NextRequest) {
     );
 
     return NextResponse.json(result.rows[0], { status: 201 });
-  } catch (error: any) {
+  } catch (error) {
     console.error('[POST /api/clients] Error:', error);
-    
+
     if (error instanceof z.ZodError) {
       return NextResponse.json(
         { error: 'Invalid input data', details: error.issues },
         { status: 400 }
       );
     }
-    
+
     return NextResponse.json(
       { error: 'Failed to create client' },
       { status: 500 }

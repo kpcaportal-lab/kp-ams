@@ -21,9 +21,10 @@ export default function LoginPage() {
             console.log('✅ Login store update complete');
             toast.success('Login successful! Redirecting...');
             navigate('/dashboard');
-        } catch (err: any) {
-            console.error('❌ Login failed:', err.message);
-            toast.error(err.message || 'Login failed');
+        } catch (err) {
+            const error = err as { message?: string };
+            console.error('❌ Login failed:', error.message);
+            toast.error(error.message || 'Login failed');
         }
     };
 

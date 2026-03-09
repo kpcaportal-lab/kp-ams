@@ -5,7 +5,7 @@ import AssignmentDetailPage from '@/pages/assignments/AssignmentDetailPage';
 
 export default function AssignmentDetail() {
   const params = useParams();
-  const id = params.id as string;
-  
+  const id = params?.id as string;
+
   return <AssignmentDetailPage key={id} />;
 }

@@ -13,7 +13,8 @@ import { formatDate } from '@/types';
 import toast from 'react-hot-toast';
 
 export default function ClientDetailPage() {
-    const { id } = useParams();
+    const params = useParams();
+    const id = params?.id as string;
     const navigate = useNavigate();
     const [client, setClient] = useState<Client | null>(null);
     const [spocs, setSpocs] = useState<ClientSpoc[]>([]);
@@ -60,8 +61,8 @@ export default function ClientDetailPage() {
                 </button>
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                     <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-blue-100 border border-blue-200 flex items-center justify-center">
-                        <Building2 className="w-8 h-8 text-blue-600" />
+                        <div className="w-16 h-16 rounded-2xl bg-blue-100 border border-blue-200 flex items-center justify-center">
+                            <Building2 className="w-8 h-8 text-blue-600" />
                         </div>
                         <div>
                             <h1 className="text-3xl font-bold text-slate-900">{client.name}</h1>

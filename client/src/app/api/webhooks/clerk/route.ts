@@ -96,12 +96,12 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ ok: true });
-  } catch (err: any) {
+  } catch (err) {
     console.error('Webhook processing error:', err);
     return NextResponse.json(
       {
         error: 'Webhook processing failed',
-        message: process.env.NODE_ENV === 'development' ? err.message : undefined,
+        message: process.env.NODE_ENV === 'development' && err instanceof Error ? err.message : undefined,
       },
       { status: 500 }
     );

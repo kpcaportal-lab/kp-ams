@@ -50,7 +50,7 @@ export interface ProposalTemplate {
     name: string;
     assignment_type: AssignmentType;
     template_file_path: string;
-    prefilled_fields: Record<string, any>;
+    prefilled_fields: Record<string, unknown>;
     required_fields: string[];
     is_active: boolean;
     created_at: string;
@@ -60,7 +60,7 @@ export interface ProposalVersion {
     id: string;
     proposal_id: string;
     version_number: number;
-    snapshot: any;
+    snapshot: unknown;
     changes_summary: string;
     created_by: string;
     created_by_name?: string;

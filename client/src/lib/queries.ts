@@ -150,7 +150,7 @@ export async function getInvoices(filters?: { status?: string }) {
                   FILTER (WHERE l.id IS NOT NULL) as lineItems
                   FROM invoice i
                   LEFT JOIN "lineItem" l ON i.id = l."invoiceId"`;
-  const params: any[] = [];
+  const params: unknown[] = [];
 
   if (filters?.status) {
     params.push(filters.status);
