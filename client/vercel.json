@@ -3,39 +3,14 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "env": [
-    {
-      "key": "DATABASE_URL",
-      "description": "PostgreSQL connection string",
-      "value": ""
-    },
-    {
-      "key": "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
-      "description": "Clerk publishable key"
-    },
-    {
-      "key": "CLERK_SECRET_KEY",
-      "description": "Clerk secret key"
-    },
-    {
-      "key": "R2_ACCESS_KEY_ID",
-      "description": "Cloudflare R2 access key"
-    },
-    {
-      "key": "R2_SECRET_ACCESS_KEY",
-      "description": "Cloudflare R2 secret key"
-    },
-    {
-      "key": "NEXT_PUBLIC_R2_ACCOUNT_ID",
-      "description": "Cloudflare R2 account ID"
-    },
-    {
-      "key": "NEXT_PUBLIC_R2_BUCKET_NAME",
-      "description": "Cloudflare R2 bucket name"
-    },
-    {
-      "key": "NEXT_PUBLIC_R2_PUBLIC_URL",
-      "description": "Cloudflare R2 public URL"
-    }
-  ]
+  "env": {
+    "DATABASE_URL": "",
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY": "",
+    "CLERK_SECRET_KEY": "",
+    "R2_ACCESS_KEY_ID": "",
+    "R2_SECRET_ACCESS_KEY": "",
+    "NEXT_PUBLIC_R2_ACCOUNT_ID": "",
+    "NEXT_PUBLIC_R2_BUCKET_NAME": "",
+    "NEXT_PUBLIC_R2_PUBLIC_URL": ""
+  }
 }
