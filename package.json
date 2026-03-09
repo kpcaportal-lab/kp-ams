@@ -1,4 +1,11 @@
 {
+  "name": "kp-ams-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm install --prefix server && npm run build --prefix server",
+    "start": "npm start --prefix server"
+  },
   "dependencies": {
     "dotenv": "^17.3.1",
     "pg": "^8.20.0",

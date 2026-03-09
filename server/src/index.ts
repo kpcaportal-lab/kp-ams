@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
-import { fileURLToPath, pathToFileURL } from 'url';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -29,7 +29,6 @@ const registerRoutes = (app: express.Express) => {
     console.log('✅ All routes loaded successfully');
 };
 
-import { createClient } from 'redis';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
