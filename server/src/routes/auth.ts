@@ -29,7 +29,6 @@ router.post('/login', async (req: Request, res: Response) => {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
-        // @ts-ignore
         const token = jwt.sign(
             { id: user.id, email: user.email, role: user.role, full_name: user.full_name },
             process.env.JWT_SECRET as string,
@@ -46,10 +45,11 @@ router.post('/login', async (req: Request, res: Response) => {
                 display_name: user.display_name,
             },
         });
-    } catch (err: any) {
-        console.error('Login Error:', err.message || err);
-        if (err.stack) console.error(err.stack);
-        return res.status(500).json({ error: 'Server error', details: err.message });
+    } catch (err: unknown) {
+        const error = err as Error;
+        console.error('Login Error:', error.message || error);
+        if (error.stack) console.error(error.stack);
+        return res.status(500).json({ error: 'Server error', details: error.message });
     }
 });
 
@@ -59,7 +59,7 @@ router.get('/me', async (req: Request, res: Response) => {
         const header = req.headers.authorization;
         if (!header) return res.status(401).json({ error: 'Unauthorized' });
         const token = header.split(' ')[1];
-        const decoded: any = jwt.verify(token, process.env.JWT_SECRET!);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { id: string };
         const result = await pool.query(
             'SELECT id, email, role, full_name, display_name FROM profiles WHERE id = $1',
             [decoded.id]

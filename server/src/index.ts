@@ -18,7 +18,7 @@ import userRoutes from './routes/users.js';
 
 // Route registration helper
 const registerRoutes = (app: express.Express) => {
-    app.get('/health', (_req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
+    app.get('/health', (_req: express.Request, res: express.Response) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
     app.use('/api/auth', authRoutes);
     app.use('/api/clients', clientRoutes);
     app.use('/api/proposals', proposalRoutes);
@@ -56,7 +56,7 @@ const startServer = async () => {
         registerRoutes(app);
 
         // ── 404 handler ─────────────────────────────────────────────
-        app.use((_req, res) => res.status(404).json({ error: 'Route not found' }));
+        app.use((_req: express.Request, res: express.Response) => res.status(404).json({ error: 'Route not found' }));
 
         // ── Error handler ───────────────────────────────────────────
         app.use((err: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {

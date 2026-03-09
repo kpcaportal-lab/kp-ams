@@ -43,7 +43,7 @@ async function verifyAndFix() {
         const dbMatch = await bcrypt.compare(password, dbHash);
         console.log(`DB hash verification for admin: ${dbMatch}`);
 
-    } catch (err) {
+    } catch (err: unknown) {
         console.error('Error:', err);
     } finally {
         await client.end();

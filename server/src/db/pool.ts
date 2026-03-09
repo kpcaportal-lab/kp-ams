@@ -10,7 +10,7 @@ const pool = new Pool({
     connectionTimeoutMillis: 10000, // Increased to 10s for slower connections
 });
 
-pool.on('error', (err) => {
+pool.on('error', (err: Error) => {
     console.error('Unexpected DB error:', err);
 });
 
