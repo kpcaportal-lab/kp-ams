@@ -1,5 +1,9 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams } from 'next/navigation';
+import { useNavigate } from '@/hooks/useNavigate';
+import Link from 'next/link';
 import {
     FileText, ArrowLeft, Calendar, User,
     Briefcase, FileCheck, AlertCircle,
@@ -7,9 +11,9 @@ import {
     Download, Copy, History, ExternalLink,
     ChevronDown, ChevronRight, FileDown
 } from 'lucide-react';
-import api from '../../lib/api';
-import type { Proposal } from '../../types';
-import { formatDate, formatCurrency, ASSIGNMENT_TYPE_LABELS } from '../../types';
+import api from '@/lib/api';
+import type { Proposal } from '@/types';
+import { formatDate, formatCurrency, ASSIGNMENT_TYPE_LABELS } from '@/types';
 import toast from 'react-hot-toast';
 
 export default function ProposalDetailPage() {

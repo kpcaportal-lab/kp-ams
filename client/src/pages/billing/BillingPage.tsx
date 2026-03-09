@@ -1,11 +1,13 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import {
     Receipt, Search,
     DollarSign, ExternalLink, Mail, Clock, CheckCircle2
 } from 'lucide-react';
-import api from '../../lib/api';
-import type { Invoice } from '../../types';
-import { formatCurrency, formatDate } from '../../types';
+import api from '@/lib/api';
+import type { Invoice } from '@/types';
+import { formatCurrency, formatDate } from '@/types';
 import toast from 'react-hot-toast';
 
 export default function BillingPage() {

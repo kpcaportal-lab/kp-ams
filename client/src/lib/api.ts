@@ -1,24 +1,27 @@
 import axios from 'axios';
 
-const isProd = import.meta.env.PROD;
-const baseURL = import.meta.env.VITE_API_URL;
+const baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
-if (isProd && !baseURL) {
-    console.warn('⚠️ VITE_API_URL is not defined in production environment. Falling back to localhost, which may cause network errors.');
-}
-
-console.log('📡 API Base URL:', baseURL || 'https://kp-ams.onrender.com');
+console.log('📡 API Base URL:', baseURL);
 
 const api = axios.create({
-    baseURL: baseURL || 'https://kp-ams.onrender.com',
+    baseURL,
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true,
 });
 
-// Attach JWT token from localStorage on every request
+// Attach JWT token from localStorage/cookies on every request
 api.interceptors.request.use((config) => {
-    const token = localStorage.getItem('kp_token');
-    if (token) config.headers.Authorization = `Bearer ${token}`;
+    // Try to get token from localStorage first (client-side)
+    let token: string | null = null;
+
+    if (typeof window !== 'undefined') {
+        token = localStorage.getItem('kp_token');
+    }
+
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
 });
 
@@ -27,8 +30,10 @@ api.interceptors.response.use(
     (res) => res,
     (error) => {
         if (error.response?.status === 401) {
-            localStorage.removeItem('kp_token');
-            window.location.href = '/login';
+            if (typeof window !== 'undefined') {
+                localStorage.removeItem('kp_token');
+                window.location.href = '/login';
+            }
         }
         return Promise.reject(error);
     }

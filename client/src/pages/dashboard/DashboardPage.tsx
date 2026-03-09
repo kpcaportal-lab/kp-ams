@@ -1,10 +1,12 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/hooks/useNavigate';
 import {
     LayoutDashboard, Users, TrendingUp, ArrowUpRight, ArrowDownRight, BarChart3
 } from 'lucide-react';
-import api from '../../lib/api';
-import type { DashboardSummary } from '../../types';
+import api from '@/lib/api';
+import type { DashboardSummary } from '@/types';
 import { formatCurrency } from '../../types';
 import toast from 'react-hot-toast';
 

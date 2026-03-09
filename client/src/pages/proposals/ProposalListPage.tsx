@@ -1,13 +1,15 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/hooks/useNavigate';
 import {
     FileText, Plus, Search, Filter,
     Clock, CheckCircle2, XCircle,
     User, ChevronRight
 } from 'lucide-react';
-import api from '../../lib/api';
-import type { Proposal, ProposalStatus } from '../../types';
-import { formatDate, formatCurrency } from '../../types';
+import api from '@/lib/api';
+import type { Proposal, ProposalStatus } from '@/types';
+import { formatDate, formatCurrency } from '@/types';
 import toast from 'react-hot-toast';
 
 export default function ProposalListPage() {

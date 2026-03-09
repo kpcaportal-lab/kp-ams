@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useState } from 'react';
 import { X, Building2, Save } from 'lucide-react';
-import api from '../../lib/api';
+import api from '@/lib/api';
 import toast from 'react-hot-toast';
 
 interface AddClientModalProps {

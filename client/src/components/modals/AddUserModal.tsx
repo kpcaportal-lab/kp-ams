@@ -1,8 +1,10 @@
+'use client';
+
 import React, { useState } from 'react';
 import { X, UserPlus, Save, Shield, Mail, Key, User as UserIcon } from 'lucide-react';
-import api from '../../lib/api';
+import api from '@/lib/api';
 import toast from 'react-hot-toast';
-import type { UserRole } from '../../types';
+import type { UserRole } from '@/types';
 
 interface AddUserModalProps {
     isOpen: boolean;

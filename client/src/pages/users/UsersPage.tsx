@@ -1,12 +1,14 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import {
     UserPlus, Search, Shield, Mail, MoreVertical,
     UserCircle, BadgeCheck
 } from 'lucide-react';
-import api from '../../lib/api';
-import type { User, UserRole } from '../../types';
+import api from '@/lib/api';
+import type { User, UserRole } from '@/types';
 import toast from 'react-hot-toast';
-import AddUserModal from '../../components/modals/AddUserModal';
+import AddUserModal from '@/components/modals/AddUserModal';
 
 export default function UsersPage() {
     const [profiles, setProfiles] = useState<User[]>([]);

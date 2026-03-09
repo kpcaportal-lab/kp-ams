@@ -1,13 +1,17 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams } from 'next/navigation';
+import { useNavigate } from '@/hooks/useNavigate';
+import Link from 'next/link';
 import {
     ArrowLeft, Calendar, Building2, FileText, CheckCircle2,
     PlayCircle, AlertCircle, Clock, Milestone, Edit3, Tags,
     ExternalLink, ShieldCheck, DollarSign, ChevronRight
 } from 'lucide-react';
-import api from '../../lib/api';
-import type { Assignment, AssignmentStatus } from '../../types';
-import { formatCurrency, SUBCATEGORY_LABELS } from '../../types';
+import api from '@/lib/api';
+import type { Assignment, AssignmentStatus } from '@/types';
+import { formatCurrency, SUBCATEGORY_LABELS } from '@/types';
 import toast from 'react-hot-toast';
 
 export default function AssignmentDetailPage() {

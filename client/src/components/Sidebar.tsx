@@ -1,6 +1,9 @@
+'use client';
+
 import { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { useAuthStore } from '../store/authStore';
+import NavLink from './NavLink';
+import { useNavigate } from '@/hooks/useNavigate';
+import { useAuthStore } from '@/store/authStore';
 import {
     LayoutDashboard, Users, FileText, ClipboardList,
     Receipt, Building2, LogOut, Menu, ChevronRight,

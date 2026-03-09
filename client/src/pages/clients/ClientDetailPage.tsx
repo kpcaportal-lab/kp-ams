@@ -1,12 +1,15 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'next/navigation';
+import { useNavigate } from '@/hooks/useNavigate';
 import {
     Building2, ArrowLeft, Mail, Phone, User,
     ShieldCheck, Calendar, Info, Clock, Edit3, Trash2
 } from 'lucide-react';
-import api from '../../lib/api';
-import type { Client, ClientSpoc } from '../../types';
-import { formatDate } from '../../types';
+import api from '@/lib/api';
+import type { Client, ClientSpoc } from '@/types';
+import { formatDate } from '@/types';
 import toast from 'react-hot-toast';
 
 export default function ClientDetailPage() {

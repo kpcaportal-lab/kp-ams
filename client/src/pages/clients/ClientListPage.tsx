@@ -1,11 +1,13 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/hooks/useNavigate';
 import { Building2, Plus, Search, Filter, ChevronRight } from 'lucide-react';
-import api from '../../lib/api';
-import type { Client, ClientStatus } from '../../types';
-import { formatDate } from '../../types';
+import api from '@/lib/api';
+import type { Client, ClientStatus } from '@/types';
+import { formatDate } from '@/types';
 import toast from 'react-hot-toast';
-import AddClientModal from '../../components/modals/AddClientModal';
+import AddClientModal from '@/components/modals/AddClientModal';
 
 export default function ClientListPage() {
     const [clients, setClients] = useState<Client[]>([]);

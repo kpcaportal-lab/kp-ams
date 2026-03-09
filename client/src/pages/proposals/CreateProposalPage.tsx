@@ -1,12 +1,14 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/hooks/useNavigate';
 import {
     FilePlus, ArrowLeft, Send, DollarSign, Target, FileText, Settings
 } from 'lucide-react';
-import api from '../../lib/api';
-import type { Client, ProposalType, AssignmentType, ProposalTemplate } from '../../types';
+import api from '@/lib/api';
+import type { Client, ProposalType, AssignmentType, ProposalTemplate } from '@/types';
 import toast from 'react-hot-toast';
-import AddClientModal from '../../components/modals/AddClientModal';
+import AddClientModal from '@/components/modals/AddClientModal';
 
 export default function CreateProposalPage() {
     const navigate = useNavigate();

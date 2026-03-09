@@ -1,11 +1,13 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import {
     Users, CheckCircle, Clock, DollarSign,
     Target
 } from 'lucide-react';
-import api from '../../lib/api';
-import type { UserWorkProgress } from '../../types';
-import { formatCurrency } from '../../types';
+import api from '@/lib/api';
+import type { UserWorkProgress } from '@/types';
+import { formatCurrency } from '@/types';
 import toast from 'react-hot-toast';
 
 export default function WorkProgressPage() {

@@ -1,11 +1,14 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'next/navigation';
+import { useNavigate } from '@/hooks/useNavigate';
 import {
     ArrowLeft, Save, DollarSign, Target, FileEdit, FileText,
     Copy, Settings
 } from 'lucide-react';
-import api from '../../lib/api';
-import type { Client, ProposalType, AssignmentType, Proposal, ProposalTemplate } from '../../types';
+import api from '@/lib/api';
+import type { Client, ProposalType, AssignmentType, Proposal, ProposalTemplate } from '@/types';
 import toast from 'react-hot-toast';
 
 export default function EditProposalPage() {
