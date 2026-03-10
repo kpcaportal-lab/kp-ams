@@ -1,19 +1,26 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-const isProtectedRoute = createRouteMatcher([
-  '/dashboard(.*)',
-  '/clients(.*)',
-  '/proposals(.*)',
-  '/assignments(.*)',
-  '/billing(.*)',
-  '/users(.*)',
-  '/work-progress(.*)',
-  '/api/(.*)' // Protect all API routes except public ones
-]);
+export function middleware(request: NextRequest) {
+  const token = request.cookies.get('kp_token')?.value;
+  const { pathname } = request.nextUrl;
 
-export default clerkMiddleware((auth, req) => {
-  if (isProtectedRoute(req)) auth().protect();
-});
+  // Allow login page without token
+  if (pathname === '/login') {
+    if (token) {
+      // If logged in, redirect to dashboard
+      return NextResponse.redirect(new URL('/dashboard', request.url));
+    }
+    return NextResponse.next();
+  }
+
+  // Protect all other routes
+  if (!token) {
+    return NextResponse.redirect(new URL('/login', request.url));
+  }
+
+  return NextResponse.next();
+}
 
 export const config = {
   matcher: [

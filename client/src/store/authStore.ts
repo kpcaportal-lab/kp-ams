@@ -27,6 +27,8 @@ export const useAuthStore = create<AuthState>()(
                     const res = await api.post('/api/auth/login', { email, password });
                     const { token, user } = res.data;
                     localStorage.setItem('kp_token', token);
+                    // Set cookie for middleware
+                    document.cookie = `kp_token=${token}; path=/; max-age=86400; SameSite=Lax`;
                     set({ user, token, isAuthenticated: true, isLoading: false });
                 } catch (err) {
                     set({ isLoading: false });
@@ -50,6 +52,7 @@ export const useAuthStore = create<AuthState>()(
 
             logout: () => {
                 localStorage.removeItem('kp_token');
+                document.cookie = 'kp_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
                 set({ user: null, token: null, isAuthenticated: false });
             },
 
